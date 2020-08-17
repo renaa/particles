@@ -30,6 +30,7 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "stats.js": "^0.17.0",
+    "three": "^0.119.1"
   }
 }
