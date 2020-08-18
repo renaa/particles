@@ -2,7 +2,6 @@ import * as THREE from "three"
 import Boid from "./boid"
 import Stats from 'stats.js'
 
-
 var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
 
 var container, stats;
@@ -63,17 +62,20 @@ function init() {
     uniforms: {
       color: { value: new THREE.Color( 0xffffff ) },
     },
-    vertexShader: `attribute float scale;
+    vertexShader:
+    `
+    attribute float scale;
 
     void main() {
 
       vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
 
-      gl_PointSize = scale * ( 300.0 / - mvPosition.z );
+      gl_PointSize = scale * ( 30.0 /  mvPosition.z );
 
       gl_Position = projectionMatrix * mvPosition;
 
-    }`,
+    }
+    `,
     fragmentShader: `
     uniform vec3 color;
 
@@ -81,9 +83,10 @@ function init() {
 
       if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
 
-      gl_FragColor = vec4( color, 1.0 );
+      gl_FragColor = vec4( color, 0.1 );
 
-    }`
+    }
+    `
 
   } );
 
