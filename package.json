@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "stats.js": "^0.17.0",
-    "three": "^0.119.1"
+    "three": "^0.125.0"
   }
 }
